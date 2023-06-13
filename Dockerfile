@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM --platform=${BUILDPLATFORM:-linux/amd64} ubuntu:22.04
 RUN apt-get update
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
