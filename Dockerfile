@@ -1,4 +1,4 @@
-FROM ubuntu:22
+FROM ubuntu:22.04
 RUN apt-cache update
 RUN apt-get install -y wget curl golang
 WORKDIR /root
