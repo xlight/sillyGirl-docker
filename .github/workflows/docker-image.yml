@@ -33,5 +33,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
+          outputs: "type=registry,push=true"
+          platforms: linux/amd64,linux/arm/v6,linux/arm64
           push: true
           tags: xlight/sillygirl-docker:v${{ steps.version.outputs.builddate }}
