@@ -25,6 +25,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: "Set current date as env variable"
+        run: |
+          echo "builddate=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        id: version  # this is used on variable path          
       -
         name: Build and push
         uses: docker/build-push-action@v4
