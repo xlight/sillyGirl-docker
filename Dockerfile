@@ -7,5 +7,5 @@ ARG TARGETARCH
 RUN apt-get install -y wget curl golang
 WORKDIR /root
 RUN wget https://github.com/cdle/sillyGirl/releases/download/main/sillyGirl_linux_$TARGETARCH
-RUN mv sillyGirl_linux_$TARGETARCH sillyGirl_linux
+RUN mv sillyGirl_linux_$TARGETARCH sillyGirl_linux && chmod +x sillyGirl_linux
 CMD ./sillyGirl_linux -t
