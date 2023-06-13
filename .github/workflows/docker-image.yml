@@ -34,4 +34,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: xlight/sillyGirl-docker:${{ steps.version.outputs.builddate }}
+          tags: xlight/sillygirl-docker:v${{ steps.version.outputs.builddate }}
