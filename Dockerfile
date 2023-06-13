@@ -1,14 +1,11 @@
 FROM ubuntu:22.04
 RUN apt-get update
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+ARG TARGETOS
+ARG TARGETARCH
 RUN apt-get install -y wget curl golang
 WORKDIR /root
-RUN /bin/bash -c 'set -ex && \
-    ARCH=`uname -m` && \
-    if [ "$ARCH" == "x86_64" ]; then \
-       echo "x86_64" && \
-    else \
-       echo "unknown arch" && \
-    fi'
-RUN wget https://github.com/cdle/sillyGirl/releases/download/main/sillyGirl_linux_$ARCH
-RUN mv sillyGirl_linux_$ARCH sillyGirl_linux
+RUN wget https://github.com/cdle/sillyGirl/releases/download/main/sillyGirl_linux_$TARGETARCH
+RUN mv sillyGirl_linux_$TARGETARCH sillyGirl_linux
 CMD ./sillyGirl_linux
